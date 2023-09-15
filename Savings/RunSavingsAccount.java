@@ -46,7 +46,7 @@ public class RunSavingsAccount {
           );
         }
       } else {
-        System.out.println("Thank you for using BDO.");
+        System.out.println("Thank you for using BDO. We find ways.");
         break;
       }
       System.out.println(border);
