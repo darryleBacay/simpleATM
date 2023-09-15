@@ -13,8 +13,10 @@ public class RunSavingsAccount {
       "<------------------------------------------------------------------------>";
 
     System.out.println(border);
-    while (true) {
+    do {
       System.out.println("Welcome to BDO");
+      System.out.print("Enter interest rate: ");
+      savings.setInterest(sc.nextDouble());
       System.out.print("Enter amount you want to deposit: ");
       savings.deposit(sc.nextDouble());
       savings.showBalance(savings);
@@ -29,18 +31,25 @@ public class RunSavingsAccount {
         String choiceTransaction = sc.next();
 
         if (choiceTransaction.equalsIgnoreCase("D")) {
-          System.out.println("Enter amount you want to deposit: ");
-          savings.deposit(sc.nextDouble());
+          System.out.print("Enter amount you want to deposit: ");
+          double depositInput = sc.nextDouble();
+          savings.deposit(depositInput);
+
+          if (savings.getBalance() > 1000) {
+            savings.addInterest(depositInput);
+          }
           savings.showBalance(savings);
         } else if (choiceTransaction.equalsIgnoreCase("W")) {
           System.out.print("Enter amount you want to withdraw: ");
-          savings.withdraw(sc.nextDouble());
-          savings.showBalance(savings);
+          System.out.println(
+            "Yout new balance is : " + savings.withDraw(sc.nextDouble())
+          );
         }
       } else {
         System.out.println("Thank you for using BDO.");
+        break;
       }
       System.out.println(border);
-    }
+    } while (true);
   }
 }

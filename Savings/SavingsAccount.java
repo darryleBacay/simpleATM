@@ -3,11 +3,10 @@ package Savings;
 public class SavingsAccount {
 
   private double balance;
-  public double interestRate;
+  public static double interestRate;
 
   public static double setInterest(double newRate) {
-    double interest;
-    return interest = newRate;
+    return interestRate = newRate;
   }
 
   public static double getInterestRate(double interestRate) {
@@ -22,7 +21,7 @@ public class SavingsAccount {
     balance += amount;
   }
 
-  public double withdraw(double amount) {
+  public double withDraw(double amount) {
     if (balance >= amount) {
       return balance - amount;
     } else {
@@ -33,6 +32,8 @@ public class SavingsAccount {
   public void addInterest(double interest) {
     interest = balance * interestRate;
     balance += interest;
+
+    System.out.println("Your current balance is: " + balance);
   }
 
   public void showBalance(SavingsAccount account) {
